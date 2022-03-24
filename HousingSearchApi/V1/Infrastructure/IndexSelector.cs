@@ -25,7 +25,7 @@ namespace HousingSearchApi.V1.Infrastructure
                 return Indices.Index(new List<IndexName> { "tenures" });
 
             if (type == typeof(QueryableAsset))
-                return Indices.Index(new List<IndexName> { "assets" });
+                return Indices.Index(new List<IndexName> { "assetsnew" });
 
             if (type == typeof(QueryableAccount))
                 return Indices.Index(new List<IndexName> { "accounts" });

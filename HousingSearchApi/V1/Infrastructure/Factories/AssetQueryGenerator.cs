@@ -29,6 +29,7 @@ namespace HousingSearchApi.V1.Infrastructure.Factories
                 .WithExactQuery(assetListRequest.SearchText,
                     new List<string>
                     {
+                        "parentAssetIds",
                         "assetAddress.addressLine1",
                         "assetAddress.uprn",
                         "assetAddress.postCode"
