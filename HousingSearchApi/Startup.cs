@@ -176,6 +176,7 @@ namespace HousingSearchApi
             services.AddScoped<IGetPersonListUseCase, GetPersonListUseCase>();
             services.AddScoped<IGetAccountListUseCase, GetAccountListUseCase>();
             services.AddScoped<IGetTenureListUseCase, GetTenureListUseCase>();
+            services.AddScoped<IGetTenureListByPrnListUseCase, GetTenureListUseByPrnListCase>();
             services.AddScoped<IElasticSearchWrapper, ElasticSearchWrapper>();
             services.AddScoped<IPagingHelper, PagingHelper>();
             services.AddScoped<ISortFactory, SortFactory>();

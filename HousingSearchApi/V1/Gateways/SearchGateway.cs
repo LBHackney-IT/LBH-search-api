@@ -59,6 +59,21 @@ namespace HousingSearchApi.V1.Gateways
         }
 
         [LogCall]
+        public async Task<GetTenureListResponse> GetListOfTenures(GetTenureListByPrnListRequest query)
+        {
+            var searchResponse = await _elasticSearchWrapper.Search<QueryableTenure, GetTenureListByPrnListRequest>(query).ConfigureAwait(false);
+            var tenureListResponse = new GetTenureListResponse();
+
+            tenureListResponse.Tenures.AddRange(searchResponse.Documents.Select(queryableTenure =>
+                queryableTenure.Create())
+            );
+
+            tenureListResponse.SetTotal(searchResponse.Total);
+
+            return tenureListResponse;
+        }
+
+        [LogCall]
         public async Task<GetAssetListResponse> GetListOfAssets(GetAssetListRequest query)
         {
             var searchResponse = await _elasticSearchWrapper.Search<QueryableAsset, GetAssetListRequest>(query).ConfigureAwait(false);

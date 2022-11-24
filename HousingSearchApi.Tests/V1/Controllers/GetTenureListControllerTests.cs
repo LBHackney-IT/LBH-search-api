@@ -12,6 +12,7 @@ namespace HousingSearchApi.Tests.V1.Controllers
     public class GetTenureListControllerTests
     {
         private readonly Mock<IGetTenureListUseCase> _mockGetTenureListUseCase;
+        private readonly Mock<IGetTenureListByPrnListUseCase> _mockGetTenureListByPrnListUseCase;
         private readonly GetTenureListController _classUnderTest;
 
 
@@ -20,7 +21,8 @@ namespace HousingSearchApi.Tests.V1.Controllers
             new LogCallAspectFixture().RunBeforeTests();
 
             _mockGetTenureListUseCase = new Mock<IGetTenureListUseCase>();
-            _classUnderTest = new GetTenureListController(_mockGetTenureListUseCase.Object);
+            _mockGetTenureListByPrnListUseCase = new Mock<IGetTenureListByPrnListUseCase>();
+            _classUnderTest = new GetTenureListController(_mockGetTenureListUseCase.Object, _mockGetTenureListByPrnListUseCase.Object);
         }
 
         [Fact]
